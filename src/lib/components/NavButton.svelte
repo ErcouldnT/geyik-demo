@@ -1,14 +1,18 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import { tabSet } from '$lib/stores/tabSet';
 
-	export let href: string;
 	export let label: string;
+	export let value: number;
+
+	const onClick = () => {
+		tabSet.set(value);
+	};
 </script>
 
-<a
-	{href}
-	class={`flex flex-col gap-1 justify-center items-center w-full p-2 ${page.url.pathname === href ? 'variant-filled-primary' : 'hover:variant-soft-primary'}`}
+<button
+	on:click={onClick}
+	class={`flex flex-col gap-1 justify-center items-center w-full p-2 ${$tabSet === value ? 'variant-filled-primary' : 'hover:variant-soft-primary'}`}
 >
 	<slot name="icon" />
 	<span>{label}</span>
-</a>
+</button>

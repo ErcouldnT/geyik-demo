@@ -22,6 +22,8 @@
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	import NavBar from '$lib/components/NavBar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Announcement from '$lib/components/Announcement.svelte';
 </script>
 
 <svelte:head>
@@ -29,8 +31,10 @@
 </svelte:head>
 
 <main class="m-5 max-w-screen-lg mx-auto space-y-5">
+	<Announcement message="Under development version" type="warning" />
 	<NavBar />
 	<div>
 		<slot />
 	</div>
+	<Footer />
 </main>

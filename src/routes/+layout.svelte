@@ -28,9 +28,9 @@
 	<title>Geyik app</title>
 </svelte:head>
 
-<main class="m-5 max-w-screen-lg mx-auto">
+<main class="m-5 max-w-screen-lg mx-auto space-y-5">
 	<NavBar />
-	<div class="p-5">
+	<div>
 		<slot />
 	</div>
 </main>

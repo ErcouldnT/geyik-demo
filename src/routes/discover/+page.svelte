@@ -1,3 +1,3 @@
 <script lang="ts"></script>
 
-<p>Welcome</p>
+<p>Discover a server</p>

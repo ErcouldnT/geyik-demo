@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { tabSet } from '$lib/stores/tabSet';
-	import Servers from '$lib/components/Servers.svelte';
-	import Discover from '$lib/components/Discover.svelte';
-	import Create from '$lib/components/Create.svelte';
-	import Library from '$lib/components/Library.svelte';
-	import Profile from '$lib/components/Profile.svelte';
+	import Servers from '$lib/components/Tabs/Servers.svelte';
+	import Discover from '$lib/components/Tabs/Discover.svelte';
+	import Create from '$lib/components/Tabs/Create.svelte';
+	import Library from '$lib/components/Tabs/Library.svelte';
+	import Profile from '$lib/components/Tabs/Profile.svelte';
 
 	if ($tabSet < 1 && $tabSet > 5) {
 		$tabSet = 1;

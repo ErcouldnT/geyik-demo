@@ -10,13 +10,13 @@
 {/if}
 
 <style>
-    .info {
-        color: aqua;
-    }
-    .warning {
-        color: yellow;
-    }
-    .error {
-        color: red;
-    }
+	.info {
+		color: aqua;
+	}
+	.warning {
+		color: yellow;
+	}
+	.error {
+		color: red;
+	}
 </style>

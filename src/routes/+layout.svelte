@@ -21,9 +21,9 @@
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-	import NavBar from '$lib/components/NavBar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Announcement from '$lib/components/Announcement.svelte';
+	import NavBar from '$lib/components/Layout/NavBar.svelte';
+	import Footer from '$lib/components/Layout/Footer.svelte';
+	import Announcement from '$lib/components/Layout/Announcement.svelte';
 </script>
 
 <svelte:head>

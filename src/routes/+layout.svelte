@@ -20,8 +20,17 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	import NavBar from '$lib/components/NavBar.svelte';
 </script>
 
-<main class="p-5">
-	<slot />
+<svelte:head>
+	<title>Geyik app</title>
+</svelte:head>
+
+<main class="m-5 max-w-screen-lg mx-auto">
+	<NavBar />
+	<div class="p-5">
+		<slot />
+	</div>
 </main>

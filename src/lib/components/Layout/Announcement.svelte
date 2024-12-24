@@ -5,18 +5,21 @@
 
 {#if message}
 	<div class={`text-center text-sm ${type}`}>
-		<p>{message}</p>
+		<p class="opacity-50 font-mono">{message}</p>
 	</div>
 {/if}
 
 <style>
 	.info {
-		color: aqua;
+		color: black;
+		background-color: aqua;
 	}
 	.warning {
-		color: yellow;
+		color: black;
+		background-color: darkorange;
 	}
 	.error {
-		color: red;
+		color: white;
+		background-color: red;
 	}
 </style>

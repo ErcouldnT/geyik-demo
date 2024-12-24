@@ -30,8 +30,8 @@
 	<title>Geyik app</title>
 </svelte:head>
 
-<main class="m-5 max-w-screen-lg mx-auto space-y-5">
-	<Announcement message="Under development version" type="warning" />
+<main class="m-5 max-w-screen-lg mx-auto space-y-5 p-2">
+	<Announcement message="Geliştirme sürümü" type="warning" />
 	<NavBar />
 	<div>
 		<slot />

@@ -4,19 +4,19 @@
 </script>
 
 <nav class="grid grid-cols-5 bg-surface-100-800-token">
-	<NavButton label="Servers" value={1}>
+	<NavButton label="Sunucular" value={1}>
 		<Server slot="icon" class="mx-auto" />
 	</NavButton>
-	<NavButton label="Discover" value={2}>
+	<NavButton label="Keşfet" value={2}>
 		<Compass slot="icon" class="mx-auto" />
 	</NavButton>
-	<NavButton label="Create" value={3}>
+	<NavButton label="Oluştur" value={3}>
 		<CirclePlus slot="icon" class="mx-auto" />
 	</NavButton>
-	<NavButton label="Library" value={4}>
+	<NavButton label="Kütüphane" value={4}>
 		<MessagesSquare slot="icon" class="mx-auto" />
 	</NavButton>
-	<NavButton label="Profile" value={5}>
+	<NavButton label="Profil" value={5}>
 		<UserRoundCog slot="icon" class="mx-auto" />
 	</NavButton>
 </nav>

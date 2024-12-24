@@ -31,8 +31,8 @@
 				<p class="text-sm text-gray-600">{server.description}</p>
 			</div>
 			<span class={server.status === 'online' ? 'text-green-500' : 'text-red-500'}>
-        {server.status}
-      </span>
+				{server.status}
+			</span>
 		</li>
 	{/each}
 </ul>

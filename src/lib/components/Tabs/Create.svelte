@@ -1,5 +1,6 @@
 <script lang="ts">
 	import socket from '$lib/socket';
+	import { addRoom } from '$lib/stores/myRooms';
 
 	let roomName = '';
 
@@ -12,6 +13,7 @@
 
 	socket.on('roomCreated', (room) => {
 		console.log(`Room created: ${room}`);
+		addRoom(room);
 	});
 </script>
 
@@ -28,6 +30,6 @@
 	<button
 		on:click={createRoom}
 		class="w-full py-2 px-4 variant-filled-primary text-white font-semibold shadow-md focus:outline-none rounded-md"
-		>Sunucu oluştur</button
+	>Sunucu oluştur</button
 	>
 </form>

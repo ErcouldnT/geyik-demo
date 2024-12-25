@@ -1,23 +1,26 @@
 <script lang="ts">
-	import socket from '$lib/socket';
-	import { addRoom } from '$lib/stores/myRooms';
+	import socket from "$lib/socket";
+	import { addRoom } from "$lib/stores/myRooms";
 
-	let roomName = '';
+	let roomName = "";
 
 	function createRoom() {
 		if (roomName.trim()) {
-			socket.emit('createRoom', roomName);
-			roomName = '';
+			socket.emit("createRoom", roomName);
+			roomName = "";
 		}
 	}
 
-	socket.on('roomCreated', (room) => {
+	socket.on("roomCreated", (room) => {
 		console.log(`Room created: ${room}`);
 		addRoom(room);
 	});
 </script>
 
-<form on:submit|preventDefault={createRoom} class="create-room max-w-md mx-auto mt-10 p-6 rounded-lg shadow-md">
+<form
+	on:submit|preventDefault={createRoom}
+	class="create-room max-w-md mx-auto mt-10 p-6 rounded-lg shadow-md"
+>
 	<label class="label block mb-4">
 		<span class="block text-sm font-medium text-gray-700">Sunucuna isim ver</span>
 		<input
@@ -30,6 +33,6 @@
 	<button
 		on:click={createRoom}
 		class="w-full py-2 px-4 variant-filled-primary text-white font-semibold shadow-md focus:outline-none rounded-md"
-	>Sunucu oluştur</button
+		>Sunucu oluştur</button
 	>
 </form>

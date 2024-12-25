@@ -1,3 +1,3 @@
-import { persisted } from 'svelte-persisted-store';
+import { persisted } from "svelte-persisted-store";
 
-export const tabSet = persisted('tabSet', 1);
+export const tabSet = persisted("tabSet", 1);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let message: string;
-	export let type: 'info' | 'warning' | 'error' = 'info';
+	export let type: "info" | "warning" | "error" = "info";
 </script>
 
 {#if message}

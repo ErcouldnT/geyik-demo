@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { CirclePlus, Compass, MessagesSquare, Server, UserRoundCog } from 'lucide-svelte';
-	import NavButton from '$lib/components/NavButton.svelte';
+	import { CirclePlus, Compass, MessagesSquare, Server, UserRoundCog } from "lucide-svelte";
+	import NavButton from "$lib/components/NavButton.svelte";
 </script>
 
 <nav class="grid grid-cols-5 bg-surface-100-800-token">

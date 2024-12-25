@@ -1,38 +1,29 @@
 <script lang="ts">
-	type Server = {
-		id: number;
-		name: string;
-		description: string;
-		status: 'online' | 'offline';
-	};
+	import socket from '$lib/socket';
+	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 
-	let discoverServers: Server[] = [
-		{
-			id: 5,
-			name: 'Upsilon Server',
-			description: 'A server for upsilon functions',
-			status: 'online'
-		},
-		{ id: 6, name: 'Phi Server', description: 'A server for phi functions', status: 'offline' },
-		{ id: 7, name: 'Chi Server', description: 'A server for chi functions', status: 'online' },
-		{ id: 8, name: 'Psi Server', description: 'A server for psi functions', status: 'offline' },
-		{ id: 9, name: 'Rho Server', description: 'A server for rho functions', status: 'online' },
-		{ id: 10, name: 'Kappa Server', description: 'A server for kappa functions', status: 'offline' }
-	];
+	const myRooms = writable<string[]>([]);
+
+	function listMyRooms() {
+		socket.emit('listMyRooms');
+	}
+
+	onMount(() => {
+		socket.on('myRooms', (roomsList: string[]) => {
+			myRooms.set(roomsList);
+		});
+
+		listMyRooms();
+	});
 </script>
 
-<p class="text-sm text-center">Katılmış olduğunuz serverlar</p>
-
-<ul class="list-none p-0">
-	{#each discoverServers as server}
-		<li class="py-4 mb-2 rounded flex justify-between items-center">
-			<div>
-				<h3 class="text-lg font-bold">{server.name}</h3>
-				<p class="text-sm text-gray-600">{server.description}</p>
-			</div>
-			<span class={server.status === 'online' ? 'text-green-500' : 'text-red-500'}>
-				{server.status}
-			</span>
-		</li>
-	{/each}
-</ul>
+<div class="max-w-md flex flex-col mx-auto mt-10 p-6 rounded-lg shadow-md">
+	<h2 class="mb-4">Bağlı olduğun sunucular</h2>
+	<ul class="list-none p-0">
+		{#each $myRooms as room}
+			<li class="py-2">{room}</li>
+		{/each}
+	</ul>
+	<button on:click={listMyRooms} class="mt-4 py-2 px-4 variant-filled-primary font-semibold rounded-md shadow-md">Yenile</button>
+</div>

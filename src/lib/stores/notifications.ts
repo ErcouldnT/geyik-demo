@@ -11,4 +11,3 @@ export function addNotification(message: string) {
 addNotification("Geyik app'e hoşgeldin!");
 addNotification("Bir yeni mesajınız var.");
 addNotification("Profil sayfanız güncellendi.");
-

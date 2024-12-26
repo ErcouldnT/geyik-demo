@@ -3,22 +3,13 @@
 	import { onMount } from "svelte";
 	import { writable } from "svelte/store";
 	import { supabase } from "$lib/supabaseClient";
-	import type { User } from "@supabase/supabase-js";
+	import { user } from "$lib/stores/user";
 
-	let user = writable<User | null>(null);
 	let errorMessage = writable("");
 	let email = "";
 	let password = "";
 
 	const socketId = writable("");
-
-	supabase.auth.onAuthStateChange((event, session) => {
-		if (session) {
-			user.set(session.user);
-		} else {
-			user.set(null);
-		}
-	});
 
 	onMount(() => {
 		if (socket.connected) {

@@ -1,5 +1,28 @@
 <script lang="ts">
 	import "../app.postcss";
+	import { onMount } from "svelte";
+	import { supabase } from "$lib/supabaseClient";
+	import { user } from "$lib/stores/user";
+
+	onMount(async () => {
+		supabase.auth.onAuthStateChange((event, session) => {
+			if (session) {
+				user.set(session.user);
+			} else {
+				user.set(null);
+			}
+		});
+
+		// İlk yüklemede oturum durumunu kontrol et
+		const {
+			data: { session }
+		} = await supabase.auth.getSession();
+		if (session) {
+			user.set(session.user);
+		} else {
+			user.set(null);
+		}
+	});
 
 	// Highlight JS
 	import hljs from "highlight.js/lib/core";

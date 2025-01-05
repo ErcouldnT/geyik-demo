@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { writable } from "svelte/store";
 	import { supabase } from "$lib/supabaseClient";
 	import { user } from "$lib/stores/user";
 
-	let errorMessage = writable("");
+	let errorMessage = "";
 	let email = "";
 	let password = "";
 
@@ -14,11 +13,11 @@
 		});
 
 		if (error) {
-			errorMessage.set(`Error signing up: ${error.message}`);
+			errorMessage = `Error signing up: ${error.message}`;
 			console.error("Error signing up:", error);
 		} else {
 			console.log("User signed up:", data.user);
-			errorMessage.set("");
+			errorMessage = "";
 		}
 	}
 
@@ -29,11 +28,11 @@
 		});
 
 		if (error) {
-			errorMessage.set(`Error signing in: ${error.message}`);
+			errorMessage = `Error signing in: ${error.message}`;
 			console.error("Error signing in:", error);
 		} else {
 			console.log("User signed in:", data.user);
-			errorMessage.set("");
+			errorMessage = "";
 		}
 	}
 
@@ -41,11 +40,11 @@
 		const { error } = await supabase.auth.signOut();
 
 		if (error) {
-			errorMessage.set(`Error signing out: ${error.message}`);
+			errorMessage = `Error signing out: ${error.message}`;
 			console.error("Error signing out:", error);
 		} else {
 			console.log("User signed out");
-			errorMessage.set("");
+			errorMessage = "";
 		}
 	}
 </script>
@@ -119,4 +118,4 @@
 	</form>
 {/if}
 
-<p class="text-red-500 mt-4">{$errorMessage}</p>
+<p class="text-red-500 mt-4">{errorMessage}</p>

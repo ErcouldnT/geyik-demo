@@ -1,6 +1,4 @@
 <script lang="ts">
-	import socket from "$lib/socket";
-	import { onMount } from "svelte";
 	import { writable } from "svelte/store";
 	import { supabase } from "$lib/supabaseClient";
 	import { user } from "$lib/stores/user";
@@ -8,18 +6,6 @@
 	let errorMessage = writable("");
 	let email = "";
 	let password = "";
-
-	const socketId = writable("");
-
-	onMount(() => {
-		if (socket.connected) {
-			socketId.set(socket.id as string);
-		} else {
-			socket.on("connect", () => {
-				socketId.set(socket.id as string);
-			});
-		}
-	});
 
 	async function signUp() {
 		const { data, error } = await supabase.auth.signUp({
@@ -65,7 +51,6 @@
 </script>
 
 <p class="text-center opacity-50">Profil ve uygulama ayarları</p>
-<p class="text-sm text-center">Socket ID: {$socketId}</p>
 
 {#if $user}
 	<div class="max-w-md mx-auto p-5 space-y-2">

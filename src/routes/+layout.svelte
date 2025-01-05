@@ -31,7 +31,7 @@
 </svelte:head>
 
 <main class="m-5 max-w-screen-lg mx-auto space-y-5 p-2">
-	<Announcement message="Geliştirme sürümü" type="warning" />
+	<Announcement message="Alpha version Geyik.app" type="warning" />
 	<NavBar />
 	<div>
 		<slot />

@@ -6,7 +6,7 @@
 
 	const joinedRooms = writable<any[]>([]);
 	const errorMessage = writable("");
-	
+
 	async function listJoinedRooms() {
 		if (!$user) {
 			errorMessage.set("You must be logged in to view your rooms.");
